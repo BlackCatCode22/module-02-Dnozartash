@@ -1,21 +1,48 @@
 import java.util.Scanner;
 
-class MaddnessWithMethods {
-    public static void main(String[] args) {
+public class MaddnessWithMethods {
+
+    public static int getAnIntFromTheUser() {
         Scanner scanner = new Scanner(System.in);
-        var num1 = getAnIntFromTheUser(scanner);
-        int num2 = getAnIntFromTheUser(scanner);
-
-        int comparison =Integer.compare(num1, num2);
-//
-//        System.out.println("The sum of " + num1 + " and " + num2 + " is " + sum);
-        System.out.println(num1 + " is " + comparison + " than " + num2);
-    }
-
-    // Method to get an integer from the user
-    public static int getAnIntFromTheUser(Scanner scanner) {
-        System.out.print("Please enter an integer: ");
+        System.out.print("Enter an integer: ");
         return scanner.nextInt();
     }
 
+    public static int compareTwoInts(int a, int b) {
+        return Integer.compare(a, b);
+    }
+
+    public static int sumTwoInts(int a, int b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        int firstNumber, secondNumber;
+        int comparisonResult;
+        int sum;
+
+        // Get the first number from the user
+        firstNumber = getAnIntFromTheUser();
+
+        // Get the second number from the user
+        secondNumber = getAnIntFromTheUser();
+
+        // Compare the two numbers
+        comparisonResult = compareTwoInts(firstNumber, secondNumber);
+
+        // Print the comparison result
+        if (comparisonResult == 1) {
+            System.out.println("The first number is greater than the second number.");
+        } else if (comparisonResult == -1) {
+            System.out.println("The first number is less than the second number.");
+        } else {
+            System.out.println("The numbers are equal.");
+        }
+
+        // Sum the two numbers
+        sum = sumTwoInts(firstNumber, secondNumber);
+
+        // Print the sum
+        System.out.println("The sum of the two numbers is: " + sum);
+    }
 }
